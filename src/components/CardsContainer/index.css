@@ -1,0 +1,14 @@
+.Card {
+  border: 2px solid black;
+}
+
+.Card-image-container {
+  position: relative;
+}
+
+.Card-image {
+  height: 200px;
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}

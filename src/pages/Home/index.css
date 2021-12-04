@@ -1,11 +1,7 @@
-html {
-  font-size: 62.5%; /* 62.5% of 16px = 10px */
-}
-
 .main-container {
   width: 100vw;
   height: 100vh;
-  background-image: url("./assets/background.png");
+  background-image: url("../../assets/background.png");
   background-size: contain;
   background-repeat: no-repeat;
   padding-top: 1%;
