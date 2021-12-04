@@ -8,22 +8,17 @@ import "./index.css";
 
 export default function Home() {
   return (
-    <div className="main-container">
-      <Container>
-        <NavBar />
-        <div className="hero-container">
-          <Box sx={{ width: "35%", marginBottom: "2vh" }}>
-            <Typography variant="h2" component="h1" sx={{ fontWeight: "bold" }}>
-              Let's make your best trip with{" "}
-              <span className="hero-text-blockchain">blockchain</span>
-            </Typography>
-          </Box>
-          <SearchBar />
-          <CardContainer />
-          <Banner />
-          <Footer />
-        </div>
-      </Container>
+    <div className="hero-container">
+      <Box sx={{ width: "35%", marginBottom: "2vh" }}>
+        <Typography variant="h2" component="h1" sx={{ fontWeight: "bold" }}>
+          Let's make your best trip with{" "}
+          <span className="hero-text-blockchain">blockchain</span>
+        </Typography>
+      </Box>
+      <SearchBar />
+      <CardContainer />
+      <Banner />
+      <Footer />
     </div>
   );
 }
