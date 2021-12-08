@@ -11,7 +11,9 @@ import {
 } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
+import GoogleMapReact from "google-map-react";
 import React from "react";
+import HouseIcon from "@mui/icons-material/House";
 import "./index.css";
 
 interface TabPanelProps {
@@ -27,6 +29,14 @@ export default function Index() {
       "aria-controls": `simple-tabpanel-${index}`,
     };
   }
+
+  const MapsProps = {
+    center: {
+      lat: 25.033,
+      lng: 121.5654,
+    },
+    zoom: 11,
+  };
 
   function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
@@ -174,216 +184,256 @@ export default function Index() {
                 Item Three
               </TabPanel>
             </Box>
-            <Box>
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <Typography>Reviews</Typography>
-                <Box sx={{ display: "flex" }}>
-                  <Typography>See all</Typography>
-                  <ChevronRightSharpIcon />
-                </Box>
-              </Stack>
-              <Grid container spacing={2}>
-                <Grid item xs={6}>
-                  <Box
-                    sx={{
-                      padding: "10px",
-                      borderRadius: "5px",
-                      height: "150px",
-                      border: "1px solid #DBDBDB",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        justifyContent: "space-between",
-                        padding: "2%",
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: "500",
-                          color: "#6F6F6F",
-                          fontSize: "12px",
-                        }}
-                      >
-                        Cleaniness
-                      </Typography>
-                      <Box>
-                        <Rating
-                          name="half-rating"
-                          defaultValue={5.0}
-                          precision={0.5}
-                        />
-                      </Box>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        justifyContent: "space-between",
-                        padding: "2%",
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: "500",
-                          color: "#6F6F6F",
-                          fontSize: "12px",
-                        }}
-                      >
-                        Communication
-                      </Typography>
-                      <Box>
-                        <Rating
-                          name="half-rating"
-                          defaultValue={5.0}
-                          precision={0.5}
-                        />
-                      </Box>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        justifyContent: "space-between",
-                        padding: "2%",
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: "500",
-                          color: "#6F6F6F",
-                          fontSize: "12px",
-                        }}
-                      >
-                        Check-in
-                      </Typography>
-                      <Box>
-                        <Rating
-                          name="half-rating"
-                          defaultValue={5.0}
-                          precision={0.5}
-                        />
-                      </Box>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        justifyContent: "space-between",
-                        padding: "2%",
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: "500",
-                          color: "#6F6F6F",
-                          fontSize: "12px",
-                        }}
-                      >
-                        Accuracy
-                      </Typography>
-                      <Box>
-                        <Rating
-                          name="half-rating"
-                          defaultValue={5.0}
-                          precision={0.5}
-                        />
-                      </Box>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        justifyContent: "space-between",
-                        padding: "2%",
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: "500",
-                          color: "#6F6F6F",
-                          fontSize: "12px",
-                        }}
-                      >
-                        Location
-                      </Typography>
-                      <Box>
-                        <Rating
-                          name="half-rating"
-                          defaultValue={5.0}
-                          precision={0.5}
-                        />
-                      </Box>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        justifyContent: "space-between",
-                        padding: "2%",
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: "500",
-                          color: "#6F6F6F",
-                          fontSize: "12px",
-                        }}
-                      >
-                        Value
-                      </Typography>
-                      <Box>
-                        <Rating
-                          name="half-rating"
-                          defaultValue={5.0}
-                          precision={0.5}
-                        />
-                      </Box>
-                    </Box>
-                  </Box>
-                </Grid>
-                <Grid item xs={6}>
-                  <Box
-                    sx={{
-                      padding: "10px",
-                      borderRadius: "5px",
-                      height: "150px",
-                      border: "1px solid #DBDBDB",
-                    }}
-                  >
-                    <Stack direction="row" alignItems="center">
-                      <Avatar sx={{ bgcolor: "blue" }}>CJ</Avatar>
-                      <Box sx={{ paddingLeft: "10px" }}>
-                        <Typography variant="h4">Jon Connington</Typography>
-                        <Typography variant="body2">Jan 2021</Typography>
-                      </Box>
-                    </Stack>
-                    <Box sx={{ paddingTop: "10px" }}>
-                      <Typography variant="body1">
-                        Beautiful and stylish apartment with everything you
-                        need. The view is amazing and the location superb. I
-                        can’t fault this property and would highly recommend. We
-                        had a wonderful week at Paradise YangMing...
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Grid>
-              </Grid>
-            </Box>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid item xs={12}>
+        <Box sx={{ paddingTop: "30px" }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Typography variant="h3">Reviews</Typography>
+            <Box sx={{ display: "flex" }}>
+              <Typography>See all</Typography>
+              <ChevronRightSharpIcon />
+            </Box>
+          </Stack>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <Box
+                sx={{
+                  padding: "10px",
+                  borderRadius: "5px",
+                  height: "200px",
+                  border: "1px solid #DBDBDB",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    padding: "2%",
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: "500",
+                      color: "#6F6F6F",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Cleaniness
+                  </Typography>
+                  <Box>
+                    <Rating
+                      name="half-rating"
+                      defaultValue={5.0}
+                      precision={0.5}
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    padding: "2%",
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: "500",
+                      color: "#6F6F6F",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Communication
+                  </Typography>
+                  <Box>
+                    <Rating
+                      name="half-rating"
+                      defaultValue={5.0}
+                      precision={0.5}
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    padding: "2%",
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: "500",
+                      color: "#6F6F6F",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Check-in
+                  </Typography>
+                  <Box>
+                    <Rating
+                      name="half-rating"
+                      defaultValue={5.0}
+                      precision={0.5}
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    padding: "2%",
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: "500",
+                      color: "#6F6F6F",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Accuracy
+                  </Typography>
+                  <Box>
+                    <Rating
+                      name="half-rating"
+                      defaultValue={5.0}
+                      precision={0.5}
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    padding: "2%",
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: "500",
+                      color: "#6F6F6F",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Location
+                  </Typography>
+                  <Box>
+                    <Rating
+                      name="half-rating"
+                      defaultValue={5.0}
+                      precision={0.5}
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    padding: "2%",
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: "500",
+                      color: "#6F6F6F",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Value
+                  </Typography>
+                  <Box>
+                    <Rating
+                      name="half-rating"
+                      defaultValue={5.0}
+                      precision={0.5}
+                    />
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={6}>
+              <Box
+                sx={{
+                  padding: "20px",
+                  borderRadius: "5px",
+                  height: "180px",
+                  border: "1px solid #DBDBDB",
+                }}
+              >
+                <Stack direction="row" alignItems="center">
+                  <Avatar sx={{ bgcolor: "blue" }}>CJ</Avatar>
+                  <Box sx={{ paddingLeft: "10px" }}>
+                    <Typography variant="h4">Jon Connington</Typography>
+                    <Typography variant="body2">Jan 2021</Typography>
+                  </Box>
+                </Stack>
+                <Box sx={{ paddingTop: "10px" }}>
+                  <Typography
+                    sx={{
+                      fontWeight: "500px",
+                      fontSize: "16px",
+                      color: "#6F6F6F",
+                    }}
+                  >
+                    Beautiful and stylish apartment with everything you need.
+                    The view is amazing and the location superb. I can’t fault
+                    this property and would highly recommend. We had a wonderful
+                    week at Paradise YangMing...
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+      </Grid>
+      <Grid item xs={12}>
+        <Typography
+          variant="h2"
+          sx={{ fontWeight: "bold", mt: "20px", mb: "20px" }}
+        >
+          Location
+        </Typography>
+        <Box sx={{ width: "100%", height: "50vh" }}>
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: "AIzaSyA4P1T-Tm6ImOyyefhx6epDZ4_v4Df1CbU",
+            }}
+            defaultCenter={MapsProps.center}
+            defaultZoom={MapsProps.zoom}
+          ></GoogleMapReact>
+        </Box>
+        <Typography
+          variant="h5"
+          sx={{ fontWeight: "600", pt: "10px", pb: "10px", fontSize: "18px" }}
+        >
+          Paradise YangMing{" "}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{ fontWeight: "500", color: "#6F6F6F", fontSize: "16px" }}
+        >
+          The apartment is located 1 line to the sea, 2 min to walk for and get
+          to the beautiful sandy beach that is 1.1 km long each way, stunning
+          views to the sea from all rooms except the bathroom. Located many
+          small restaurants , pubs and bars along the...
+        </Typography>
       </Grid>
     </Grid>
   );

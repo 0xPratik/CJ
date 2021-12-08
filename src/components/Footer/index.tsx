@@ -123,7 +123,7 @@ export default function Footer() {
             </Box>
             <Box>
               <Link href="#" underline="none">
-                Gidt Cards
+                Gift Cards
               </Link>
             </Box>
             <Box>
@@ -183,36 +183,65 @@ export default function Footer() {
         justifyContent="space-between"
       >
         <Box>
-          <Typography display="block">Toktel, Inc</Typography>
+          <Typography
+            display="block"
+            sx={{ fontSize: "16px", fontWeight: "bold" }}
+          >
+            Toktel, Inc
+          </Typography>
         </Box>
         <Stack direction="row" spacing={2}>
           <Box>
-            <Link href="#" underline="none">
+            <Link
+              href="#"
+              underline="none"
+              sx={{ fontSize: "16px", fontWeight: "bold" }}
+            >
               Terms
             </Link>
           </Box>
           <Box>
-            <Link href="#" underline="none">
+            <Link
+              href="#"
+              underline="none"
+              sx={{ fontSize: "16px", fontWeight: "bold" }}
+            >
               Privacy
             </Link>
           </Box>
           <Box>
-            <Link href="#" underline="none">
+            <Link
+              href="#"
+              underline="none"
+              sx={{ fontSize: "16px", fontWeight: "bold" }}
+            >
               Site map
             </Link>
           </Box>
           <Box>
-            <Link href="#" underline="none">
+            <Link
+              href="#"
+              underline="none"
+              sx={{ fontSize: "16px", fontWeight: "bold" }}
+            >
               <FacebookOutlinedIcon />
             </Link>
           </Box>
           <Box>
-            <Link href="#" underline="none">
+            <Link
+              href="#"
+              underline="none"
+              sx={{ fontSize: "16px", fontWeight: "bold" }}
+            >
               <TwitterIcon />
             </Link>
           </Box>
           <Box>
-            <Link href="#" underline="none">
+            <Link
+              href="#"
+              underline="none"
+              sx={{ fontSize: "16px", fontWeight: "bold" }}
+            >
               <InstagramIcon />
             </Link>
           </Box>

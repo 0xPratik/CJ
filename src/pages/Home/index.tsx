@@ -9,7 +9,7 @@ import "./index.css";
 export default function Home() {
   return (
     <div className="hero-container">
-      <Box sx={{ width: "35%", marginBottom: "2vh" }}>
+      <Box sx={{ width: "75%", marginBottom: "2vh" }}>
         <Typography variant="h2" component="h1" sx={{ fontWeight: "bold" }}>
           Let's make your best trip with{" "}
           <span className="hero-text-blockchain">blockchain</span>
@@ -18,7 +18,6 @@ export default function Home() {
       <SearchBar />
       <CardContainer />
       <Banner />
-      <Footer />
     </div>
   );
 }

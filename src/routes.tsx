@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Buy from "./pages/buy";
 import Explore from "./pages/explore";
+import Footer from "./components/Footer";
 import "./App.css";
 
 export default function AllRoutes() {
@@ -18,6 +19,7 @@ export default function AllRoutes() {
               <Route path="/buy" element={<Buy />} />
               <Route path="/explore" element={<Explore />} />
             </Routes>
+            <Footer />
           </div>
         </Container>
       </div>

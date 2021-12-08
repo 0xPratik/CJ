@@ -30,7 +30,7 @@ export default function CardContainer() {
             </Typography>
           </Box>
           <Box>
-            <Stack direction="row" alignItems="center">
+            <Stack direction="row" alignItems="center" fontSize="16px">
               <Link href="#" underline="none">
                 See all
               </Link>
