@@ -14,7 +14,6 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
 import GoogleMapReact from "google-map-react";
 import React, { useState, useEffect } from "react";
-import HouseIcon from "@mui/icons-material/House";
 import * as anchor from "@project-serum/anchor";
 import {
   CandyMachine,
@@ -264,19 +263,13 @@ export default function Buy(props: BuyProps) {
                   10% of sales will do to creator
                 </Typography>
                 <Box sx={{ pt: "20px" }}>
-                  <Button
+                  <button
                     disabled={isSoldOut || isMinting || !isActive}
                     onClick={onMint}
-                    sx={{
-                      backgroundColor: "#F5BC41",
-                      padding: "5px 10px",
-                      fontWeight: "600",
-                      borderRadius: "5px",
-                      color: "white",
-                    }}
+                    className="btn"
                   >
                     Buy now
-                  </Button>
+                  </button>
                 </Box>
               </Box>
             </Box>

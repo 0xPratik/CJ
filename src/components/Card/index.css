@@ -1,5 +1,6 @@
 .Card {
   border: 1px solid #dbdbdb;
+  text-decoration: none;
 }
 
 .Card-image-container {

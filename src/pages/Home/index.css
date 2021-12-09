@@ -17,3 +17,20 @@
 .hero-text-blockchain {
   color: #f4bd40;
 }
+
+.btn {
+  background-color: #f5bc41;
+  padding: 10px 15px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #f28705;
+}
+
+.btn:active {
+  border: 1px solid white;
+}

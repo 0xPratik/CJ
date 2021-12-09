@@ -2,6 +2,8 @@ import { Box, Typography, Button } from "@mui/material";
 import { styled } from "@mui/styles";
 import Banner1 from "../../assets/banner1.png";
 import Banner2 from "../../assets/Banner2.png";
+import { Link } from "react-router-dom";
+import "./index.css";
 
 const BannerContainer = styled(({ src, ...others }) => <Box {...others} />)({
   backgroundImage: (props) => `url(${props.src})`,
@@ -25,17 +27,9 @@ export default function Banner(props: BannerProps) {
         <Typography variant="h1" sx={{ color: "white", paddingBottom: "30px" }}>
           2021 US Open
         </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            color: "white",
-            padding: "15px 40px",
-            fontSize: "15px",
-            backgroundColor: "#F5BC41",
-          }}
-        >
+        <Link to="/explore" className="btn">
           Explore
-        </Button>
+        </Link>
       </Box>
     </BannerContainer>
   );
