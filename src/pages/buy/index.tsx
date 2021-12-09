@@ -9,11 +9,22 @@ import {
   Avatar,
   Rating,
 } from "@mui/material";
+import { useConnection } from "@solana/wallet-adapter-react";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
 import GoogleMapReact from "google-map-react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HouseIcon from "@mui/icons-material/House";
+import * as anchor from "@project-serum/anchor";
+import {
+  CandyMachine,
+  awaitTransactionSignatureConfirmation,
+  getCandyMachineState,
+  mintOneToken,
+  shortenAddress,
+} from "../../utils/candy-machine";
+import { useAnchorWallet } from "@solana/wallet-adapter-react";
+import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import "./index.css";
 
 interface TabPanelProps {
@@ -22,7 +33,14 @@ interface TabPanelProps {
   value: number;
 }
 
-export default function Index() {
+export interface BuyProps {
+  candyMachineId: anchor.web3.PublicKey;
+  config: anchor.web3.PublicKey;
+  treasury: anchor.web3.PublicKey;
+  txTimeout: number;
+}
+
+export default function Buy(props: BuyProps) {
   function a11yProps(index: number) {
     return {
       id: `simple-tab-${index}`,
@@ -62,6 +80,127 @@ export default function Index() {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
+  //Candy Machine CODE:
+  const [balance, setBalance] = useState<number>();
+  const [isActive, setIsActive] = useState(true); // true when countdown completes
+  const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
+  const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
+
+  const [itemsAvailable, setItemsAvailable] = useState(0);
+  const [itemsRedeemed, setItemsRedeemed] = useState(0);
+  const [itemsRemaining, setItemsRemaining] = useState(0);
+  const wallet = useAnchorWallet();
+  const { connection } = useConnection();
+  const [candyMachine, setCandyMachine] = useState<CandyMachine>();
+
+  const refreshCandyMachineState = () => {
+    (async () => {
+      if (!wallet) return;
+
+      const {
+        candyMachine,
+        goLiveDate,
+        itemsAvailable,
+        itemsRemaining,
+        itemsRedeemed,
+      } = await getCandyMachineState(
+        wallet as anchor.Wallet,
+        props.candyMachineId,
+        connection
+      );
+
+      setItemsAvailable(itemsAvailable);
+      setItemsRemaining(itemsRemaining);
+      setItemsRedeemed(itemsRedeemed);
+
+      setIsSoldOut(itemsRemaining === 0);
+      setCandyMachine(candyMachine);
+    })();
+  };
+
+  const onMint = async () => {
+    try {
+      setIsMinting(true);
+      if (wallet && candyMachine?.program) {
+        const mintTxId = await mintOneToken(
+          candyMachine,
+          props.config,
+          wallet.publicKey,
+          props.treasury
+        );
+
+        const status = await awaitTransactionSignatureConfirmation(
+          mintTxId,
+          props.txTimeout,
+          connection,
+          "singleGossip",
+          false
+        );
+
+        if (!status?.err) {
+          // setAlertState({
+          //   open: true,
+          //   message: "Congratulations! Mint succeeded!",
+          //   severity: "success",
+          // });
+        } else {
+          // setAlertState({
+          //   open: true,
+          //   message: "Mint failed! Please try again!",
+          //   severity: "error",
+          // });
+        }
+      }
+    } catch (error: any) {
+      // TODO: blech:
+      let message = error.msg || "Minting failed! Please try again!";
+      if (!error.msg) {
+        if (error.message.indexOf("0x138")) {
+        } else if (error.message.indexOf("0x137")) {
+          message = `SOLD OUT!`;
+        } else if (error.message.indexOf("0x135")) {
+          message = `Insufficient funds to mint. Please fund your wallet.`;
+        }
+      } else {
+        if (error.code === 311) {
+          message = `SOLD OUT!`;
+          setIsSoldOut(true);
+        } else if (error.code === 312) {
+          message = `Minting period hasn't started yet.`;
+        }
+      }
+
+      // setAlertState({
+      //   open: true,
+      //   message,
+      //   severity: "error",
+      // });
+    } finally {
+      if (wallet) {
+        const balance = await connection.getBalance(wallet.publicKey);
+        setBalance(balance / LAMPORTS_PER_SOL);
+      }
+      setIsMinting(false);
+      refreshCandyMachineState();
+    }
+  };
+
+  useEffect(() => {
+    (async () => {
+      if (wallet) {
+        const balance = await connection.getBalance(wallet.publicKey);
+        setBalance(balance / LAMPORTS_PER_SOL);
+      }
+    })();
+  }, [wallet, connection]);
+
+  useEffect(refreshCandyMachineState, [
+    wallet,
+    props.candyMachineId,
+    connection,
+  ]);
+
   return (
     <Grid container sx={{ paddingLeft: "10%", paddingRight: "10%" }}>
       <Grid item xs={12}>
@@ -126,6 +265,8 @@ export default function Index() {
                 </Typography>
                 <Box sx={{ pt: "20px" }}>
                   <Button
+                    disabled={isSoldOut || isMinting || !isActive}
+                    onClick={onMint}
                     sx={{
                       backgroundColor: "#F5BC41",
                       padding: "5px 10px",

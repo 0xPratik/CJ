@@ -1,0 +1,19 @@
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 1%;
+}
+
+.hero-container {
+  padding-top: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+}
+
+.hero-text-blockchain {
+  color: #f4bd40;
+}

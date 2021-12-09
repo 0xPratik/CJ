@@ -10,6 +10,13 @@ import {
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Card from "../Card/index";
+import Img1 from "../../assets/home/img1.png";
+import Img2 from "../../assets/home/img2.png";
+import Img3 from "../../assets/home/img3.png";
+import Img4 from "../../assets/home/img4.png";
+import Img5 from "../../assets/home/img5.png";
+import Img6 from "../../assets/home/img6.png";
+
 import "./index.css";
 
 export default function CardContainer() {
@@ -41,22 +48,22 @@ export default function CardContainer() {
       </Box>
       <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={12} md={4}>
-          <Card />
+          <Card imageSrc={Img1} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <Card />
+          <Card imageSrc={Img2} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <Card />
+          <Card imageSrc={Img3} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <Card />
+          <Card imageSrc={Img4} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <Card />
+          <Card imageSrc={Img5} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <Card />
+          <Card imageSrc={Img6} />
         </Grid>
       </Grid>
     </Box>

@@ -5,6 +5,7 @@ import Banner from "../../components/Banner/index";
 import Footer from "../../components/Footer";
 import CardContainer from "../../components/CardsContainer/index";
 import "./index.css";
+import Banner1 from "../../assets/banner1.png";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
       </Box>
       <SearchBar />
       <CardContainer />
-      <Banner />
+      <Banner Image={Banner1} />
     </div>
   );
 }

@@ -2,15 +2,18 @@ import { Box, Paper, Typography, Stack } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import "./index.css";
 
-export default function index() {
+export interface CardProps {
+  imageSrc: any;
+  hotelName?: string;
+  date?: string;
+  price?: string;
+}
+
+export default function Card(props: CardProps) {
   return (
     <Paper variant="outlined" className="Card">
       <Box>
-        <img
-          src="https://picsum.photos/seed/picsum/400/400"
-          className="Card-image"
-          alt="hotel"
-        />
+        <img src={props.imageSrc} className="Card-image" alt="hotel" />
       </Box>
       <Box sx={{ padding: "10px" }}>
         <Typography
