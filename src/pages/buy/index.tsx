@@ -25,6 +25,7 @@ import {
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import "./index.css";
+import BuyImg from "../../assets/buy.png";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -205,11 +206,7 @@ export default function Buy(props: BuyProps) {
       <Grid item xs={12}>
         <Grid container spacing={4}>
           <Grid item xs={5}>
-            <img
-              src="https://picsum.photos/200/300"
-              alt="This"
-              className="image"
-            />
+            <img src={BuyImg} alt="This" className="image" />
           </Grid>
           <Grid item xs={7}>
             <Stack
