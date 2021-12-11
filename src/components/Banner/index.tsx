@@ -18,6 +18,7 @@ const BannerContainer = styled(({ src, ...others }) => <Box {...others} />)({
 
 export interface BannerProps {
   Image: any;
+  route: string;
 }
 
 export default function Banner(props: BannerProps) {
@@ -27,7 +28,7 @@ export default function Banner(props: BannerProps) {
         <Typography variant="h1" sx={{ color: "white", paddingBottom: "30px" }}>
           2021 US Open
         </Typography>
-        <Link to="/explore" className="btn">
+        <Link to={props.route} className="btn">
           Explore
         </Link>
       </Box>

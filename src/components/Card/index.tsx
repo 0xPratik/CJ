@@ -8,7 +8,17 @@ export interface CardProps {
   hotelName?: string;
   date?: string;
   price?: string;
+  location?: string;
+  likes?: string;
 }
+
+Card.defaultProps = {
+  hotelName: "The Joshua Tree House",
+  location: "taipei · beach nearbay",
+  date: "7 Sept - 10 Sept",
+  price: "2.99 TKT",
+  likes: "231",
+};
 
 export default function Card(props: CardProps) {
   return (
@@ -27,7 +37,7 @@ export default function Card(props: CardProps) {
               textDecoration: "none",
             }}
           >
-            TAIPEI Beach Norway
+            {props.location}
           </Typography>
           <Typography
             variant="h4"
@@ -37,12 +47,12 @@ export default function Card(props: CardProps) {
               fontWeight: "600",
             }}
           >
-            The Joshua Tree House
+            {props.hotelName}
           </Typography>
           <Typography
             sx={{ color: "#818181", fontSize: "12px", fontWeight: "500" }}
           >
-            7 Sept - 10 Sept
+            {props.date}
           </Typography>
           <Stack
             direction="row"
@@ -60,7 +70,7 @@ export default function Card(props: CardProps) {
                   textDecoration: "none",
                 }}
               >
-                0.14 TKT
+                {props.price}
               </Typography>
             </Box>
             <Box>
@@ -79,7 +89,7 @@ export default function Card(props: CardProps) {
                     paddingLeft: "4px",
                   }}
                 >
-                  200
+                  {props.likes}
                 </Typography>
               </Stack>
             </Box>

@@ -17,8 +17,8 @@ export default function Home() {
         </Typography>
       </Box>
       <SearchBar />
-      <CardContainer />
-      <Banner Image={Banner1} />
+      <CardContainer explore={false} />
+      <Banner Image={Banner1} route="/explore" />
     </div>
   );
 }

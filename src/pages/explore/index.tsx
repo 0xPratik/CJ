@@ -8,8 +8,8 @@ import "./index.css";
 export default function index() {
   return (
     <div className="hero-container">
-      <CardContainer />
-      <Banner Image={Banner2} />
+      <CardContainer explore={true} />
+      <Banner Image={Banner2} route="/" />
     </div>
   );
 }

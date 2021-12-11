@@ -1,7 +1,7 @@
 {
-  "homepage": "http://ProPratik1405.github.io/",
+  "homepage": "http://ProPratik1405.github.io/CJ",
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
