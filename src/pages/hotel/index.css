@@ -1,0 +1,36 @@
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 1%;
+}
+
+.hero-container {
+  padding-top: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+}
+
+.hero-text-blockchain {
+  color: #f4bd40;
+}
+
+.btn {
+  background-color: #f5bc41;
+  padding: 10px 15px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #f28705;
+}
+
+.btn:active {
+  border: 1px solid white;
+}

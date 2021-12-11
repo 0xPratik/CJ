@@ -9,7 +9,7 @@ export default function index() {
   return (
     <div className="hero-container">
       <CardContainer explore={true} />
-      <Banner Image={Banner2} route="/" />
+      <Banner Image={Banner2} route="/hotel" />
     </div>
   );
 }
