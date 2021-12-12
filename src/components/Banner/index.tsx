@@ -19,6 +19,7 @@ const BannerContainer = styled(({ src, ...others }) => <Box {...others} />)({
 export interface BannerProps {
   Image: any;
   route: string;
+  title: string;
 }
 
 export default function Banner(props: BannerProps) {
@@ -26,7 +27,7 @@ export default function Banner(props: BannerProps) {
     <BannerContainer src={props.Image}>
       <Box sx={{ padding: "100px" }}>
         <Typography variant="h1" sx={{ color: "white", paddingBottom: "30px" }}>
-          2021 US Open
+          {props.title}
         </Typography>
         <Link to={props.route} className="btn">
           Explore
