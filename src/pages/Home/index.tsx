@@ -18,7 +18,7 @@ export default function Home() {
       </Box>
       <SearchBar />
       <CardContainer explore={false} />
-      <Banner Image={Banner1} route="/explore" />
+      <Banner Image={Banner1} route="/explore" title="2021 US Open" />
     </div>
   );
 }
