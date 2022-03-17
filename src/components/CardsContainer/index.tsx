@@ -124,7 +124,7 @@ export default function CardContainer(props: CardContainerProps) {
             imageSrc={nftData?.image}
             date={nftData?.attributes.find(attr=>attr.trait_type==="Check In")?.value}
             hotelName={nftData?.name}
-            price={props.explore ? "$103.00" : "2.99 TKT"}
+            price={props.explore ? "$103.00" : " "}
             location={
               props.explore ? "Arthur Ashe Stadium" : "Taipei · beach nearbay"
             }
