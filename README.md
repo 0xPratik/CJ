@@ -2,14 +2,14 @@
 
 Toktel is the Access NFT marketplace on Solana.
 
-We mint and sell the NFTs that is used as the right to access certain services or spaces.
-Such as tickets, passes, membership cards, and hotel stay.
+We mint and sell the NFTs that are used as the right to access certain services or spaces.
+Such as tickets, passes, membership cards, and hotel stays.
 
 
 
 ## Phase one
 
-Listing and purchasing NFTs (currennt stage)
+Listing and purchasing NFTs (current stage)
 
 ## Phase two
 
